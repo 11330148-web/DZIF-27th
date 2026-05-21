@@ -45,19 +45,6 @@
             font-family: 'Fira Code', monospace;
         }
 
-        /* 載入動畫樣式 */
-        #loader {
-            transition: opacity 0.8s ease-out, visibility 0.8s;
-        }
-        .typing-effect {
-            border-right: .15em solid #06b6d4;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 2s steps(20, end), blink-caret .75s step-end infinite;
-        }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #06b6d4; } }
-
         /* 滾動顯示動畫 (Scroll Reveal) */
         .reveal {
             opacity: 0;
@@ -91,14 +78,6 @@
     </style>
 </head>
 <body class="antialiased">
-
-    <!-- 載入動畫畫面 -->
-    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-tech-dark">
-        <div class="text-center">
-            <i class="ph ph-terminal-window text-6xl text-tech-primary mb-4 animate-bounce"></i>
-            <h1 class="text-2xl font-mono text-tech-primary typing-effect inline-block">System.load("DZIF_27th");</h1>
-        </div>
-    </div>
 
     <!-- 導覽列 -->
     <nav class="fixed w-full z-40 top-0 start-0 border-b border-gray-800 bg-tech-dark/80 backdrop-blur-md">
@@ -418,19 +397,7 @@
 
     <!-- JavaScript 邏輯 -->
     <script>
-        // 1. 處理載入動畫
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            // 模擬一點載入時間讓打字動畫跑完
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 800);
-            }, 2000); 
-        });
-
-        // 2. 行動裝置選單切換
+        // 行動裝置選單切換
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navbar = document.getElementById('navbar-default');
         
